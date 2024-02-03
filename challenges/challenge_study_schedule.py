@@ -4,10 +4,10 @@ from collections import Counter
 def study_schedule(permanence_period, target_time):
     # validações
     if any(end < start for start, end in permanence_period):
-        raise ValueError("Dados de permanência do usuário inválidos.")
+        return None
 
     if target_time is None:
-        raise ValueError("Insira um target time válido!")
+        return None
 
     # algoritmo de busca
     permanence_result = []
