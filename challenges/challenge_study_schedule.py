@@ -3,7 +3,13 @@ from collections import Counter
 
 def study_schedule(permanence_period, target_time):
     # validações
-    if any(end < start for start, end in permanence_period):
+    if any(
+        start is None
+        or end is None
+        or not isinstance(start, int)
+        or not isinstance(end, int)
+        for start, end in permanence_period
+    ):
         return None
 
     if target_time is None:
